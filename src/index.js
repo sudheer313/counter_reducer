@@ -3,43 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import Counter from "./components/Counter";
+import allReducer from "./reducers";
+
 import App from "./App";
 
-
-//STORE -> GLOBALIZED STORE
-
-
-//ACTION INCREMENT
-
-const increment=()=>{
-  return{
-    type:'INCREMENT'
-  }
-}
-
-const decrement=()=>{
-  return{
-    type:'DECREMENT'
-  }
-}
-
-// REDUCER
-
-
-// DISPATCH
-
-
-
-
-
-
+const store = createStore(
+  allReducer,
+  window._REDUX_DEVTOOLS_EXTENSION_ && window._REDUX_DEVTOOLS_EXTENSION_()
+);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-  
-    <App/>
+    <App />
   </Provider>
 );
-
-
